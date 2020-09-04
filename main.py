@@ -59,5 +59,9 @@ def main():
             webbrowser.open(page_url)
         else:
             speak("Ok!")
+    
+    if voice_data == "goodbye" or voice_data == "bye" or voice_data == "quit":
+        speak("See ya later!")                      # quits the program
+        exit()
 
 main()
