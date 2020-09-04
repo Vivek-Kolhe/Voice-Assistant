@@ -2,8 +2,10 @@ import speech_recognition as sr
 from gtts import gTTS
 import os
 import playsound
+import time
 import random
 import wikipedia
+import webbrowser
 
 def hearing():
     r = sr.Recognizer()
@@ -31,7 +33,16 @@ def main():
     speak("Hey, what's up?")                        # greeting
     voice_data = hearing()
 
-    if "search wikipedia for" in voice_data:
+    if voice_data == "who are you" or voice_data == "what is your name" or voice_data == "what's your name":
+        speak("I'm  Athena.")                       # gives introduction
+
+    if voice_data == "what time is it" or voice_data == "what is the time" or voice_data == "tell me the time":
+        local_time = time.asctime()
+        local_time = local_time[11:19]
+        time_words = f"{local_time[:2]} hours and {local_time[3:5]} minutes and {local_time[6:]} seconds."
+        speak(time_words)                           # tells you time
+
+    if "search wikipedia for" in voice_data:        # searches wikipedia
         voice_data = voice_data.split()
         results = wikipedia.search(voice_data[3:])
         speak("Here are the results I found.")
@@ -45,9 +56,8 @@ def main():
         speak("Would you like me to open the page?")
         choice_2 = input("Enter (y/n): ")
         if choice_2 == "y":
-            pass
+            webbrowser.open(page_url)
         else:
-            pass
-
+            speak("Ok!")
 
 main()
