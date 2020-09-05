@@ -42,10 +42,16 @@ def main():
         time_words = f"{local_time[:2]} hours and {local_time[3:5]} minutes and {local_time[6:]} seconds."
         speak(time_words)                           # tells you time
 
+    if "search google for" in voice_data:           # google search
+        query = voice_data.split()
+        query = query[3:]
+        speak("Opening browser.")
+        webbrowser.open("https://www.google.com/search?q=" + "%20".join(query))
+
     if "search wikipedia for" in voice_data:        # searches wikipedia
         voice_data = voice_data.split()
         results = wikipedia.search(voice_data[3:])
-        speak("Here are the results I found.")
+        speak(f"Here is what I found for {voice_data[3:]}.")
         for i in range(len(results)):
             print(f"{i+1}. {results[i]}")
         speak("What do you want to search in particular? Enter index of the result")
