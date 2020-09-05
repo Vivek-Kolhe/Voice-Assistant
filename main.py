@@ -2,6 +2,7 @@ import speech_recognition as sr
 from gtts import gTTS
 import os
 import playsound
+import requests
 import time
 import random
 import wikipedia
@@ -65,6 +66,11 @@ def main():
             webbrowser.open(page_url)
         else:
             speak("Ok!")
+    
+    if voice_data == "chuck norris":                # gets random chuck norris joke
+        response = requests.get("https://api.chucknorris.io/jokes/random")
+        data = response.json()
+        speak(data["value"])
     
     if voice_data == "goodbye" or voice_data == "bye" or voice_data == "quit":
         speak("See ya later!")                      # quits the program
