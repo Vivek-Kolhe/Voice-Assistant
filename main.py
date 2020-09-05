@@ -72,6 +72,11 @@ def main():
         data = response.json()
         speak(data["value"])
     
+    if voice_data == "advice" or voice_data == "give me an advice":
+        response = requests.get("https://api.adviceslip.com/advice")
+        data = response.json()
+        speak(data["slip"]["advice"])               # gives random advice
+    
     if voice_data == "goodbye" or voice_data == "bye" or voice_data == "quit":
         speak("See ya later!")                      # quits the program
         exit()
