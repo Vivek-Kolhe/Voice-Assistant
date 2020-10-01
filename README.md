@@ -22,6 +22,7 @@ Voice assistant made in python. This is just an implementation of module speech_
 - Say ***who are you*** or ***what is your name*** or ***what's your name*** to ***get its introduction***.
 - Say ***tell me the time*** or ***what time is time is it*** or ***what is the time*** to ***get current time***.
 - Say ***search google for \<query>*** for ***google search***.
+- Say ***search wikipedia for \<query>*** to ***fetch something from wikipedia***.
 - Say ***rock paper scissors*** to ***play rock, paper and scissors***.
 - Say ***chuck norris*** to ***get a random Chuck Norris joke***.
 - Say ***advice*** to ***get a random advice***.
