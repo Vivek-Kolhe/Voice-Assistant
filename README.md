@@ -6,8 +6,12 @@ Voice assistant made in python. This is just an implementation of module speech_
 - PyAudio\
   ```pip3 install pipwin```\
   ```pipwin install pyaudio```
+
 - Speech Recognition\
   ```pip3 install speech_recognition```
+
+- gTTS\
+  ```pip3 install gtts```
 
 - Playsound\
   ```pip3 install playsound```
